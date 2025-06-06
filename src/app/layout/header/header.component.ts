@@ -11,7 +11,7 @@ import { LayoutService } from '../../service/layout.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, StyleClassModule, AppConfigurator],
+  imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator],
 })
 export class HeaderComponent  {
 
