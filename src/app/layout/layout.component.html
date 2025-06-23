@@ -3,6 +3,13 @@
         <app-sidebar></app-sidebar>
         <div class="layout-main-container">
             <div class="layout-main">
+              <div class="grid grid-cols-12 gap-8">
+                <div class="col-span-12">
+                  <div class="!mb-8">
+                    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+                  </div>
+                </div>
+              </div>
                 <router-outlet></router-outlet>
             </div>
             <app-footer></app-footer>

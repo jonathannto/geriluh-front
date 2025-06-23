@@ -23,7 +23,7 @@ model: MenuItem[] = [];
             {
                 label: 'Operações',
                 items: [
-                    { label: 'Caixa', icon: 'pi pi-fw pi-wallet', routerLink: ['/uikit/formlayout'] },
+                    { label: 'Caixa', icon: 'pi pi-fw pi-wallet', routerLink: ['/caixa'] },
 
                 ]
             },

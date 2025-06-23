@@ -75,7 +75,8 @@
               "buildTarget": "geriluh-front:build:production"
             },
             "development": {
-              "buildTarget": "geriluh-front:build:development"
+              "buildTarget": "geriluh-front:build:development",
+              "proxyConfig": "proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
