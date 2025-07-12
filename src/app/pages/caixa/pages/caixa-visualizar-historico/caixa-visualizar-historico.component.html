@@ -2,6 +2,91 @@
   <div class="col-span-12">
     <div class="card !mb-8">
       <div class="font-semibold text-xl mb-4">Histórico de Caixas</div>
+      <div class="card">
+        <h2>Registros de Caixa</h2>
+
+        <p-dataView
+          #dv
+          [value]="caixaRegistradora"
+          [lazy]="true"
+          (onLazyLoad)="carregarCaixaRegistradora($event)"
+          [paginator]="true"
+          [rows]="10"
+          [totalRecords]="registrosTotais"
+          [loading]="carregando"
+          [rowsPerPageOptions]="[10, 20, 50]"
+          [showCurrentPageReport]="true"
+          currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
+        >
+
+<ng-template #list let-items>
+                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                    <div class="col-span-12" *ngFor="let item of items; let i = index">
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
+                            [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': i > 0 }"
+                        >
+                            <div class="md:w-40 relative">
+                                <img
+                                    class="block xl:block mx-auto rounded-border w-full"
+                                    src="assets/cash_register.jpg"
+                                    [alt]="item.cashRegisterId"
+                                />
+                                <p-tag
+                                    [value]="item.status"
+                                    [severity]="item.status === 'open' ? 'success' : item.status === 'closed' ? 'danger' : 'warning'"
+                                    class="absolute"
+                                    styleClass="dark:!bg-surface-900"
+                                    [style.left.px]="4"
+                                    [style.top.px]="4"
+                                />
+                            </div>
+                            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-secondary text-sm">Caixa Registradora</span>
+                                        <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">Código: {{ item.cashRegisterId }}</div>
+                                        <div class="text-sm text-surface-700 dark:text-surface-300">Abertura: {{ item.initDate | date:'dd/MM/yyyy HH:mm' }}</div>
+                                        <div class="text-sm text-surface-700 dark:text-surface-300">Fechamento: {{ item.endDate | date:'dd/MM/yyyy HH:mm' }}</div>
+                                        <!-- Simplificando o acesso aos valores numéricos para depuração -->
+                                        <div class="text-sm text-surface-700 dark:text-surface-300">
+                                            Saldo Inicial: R$ {{ item.initialBalance?.parsedValue || item.initialBalance }}
+                                        </div>
+                                    </div>
+                                    <div class="bg-surface-100 dark:bg-surface-700 p-1" style="border-radius: 30px">
+                                        <div
+                                            class="bg-surface-0 dark:bg-surface-900 flex items-center gap-2 justify-center py-1 px-2"
+                                            style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
+                                        >
+                                            <span class="text-surface-900 dark:text-surface-0 font-medium text-sm">
+                                                Vendas: {{ item.totalSales?.parsedValue || item.totalSales }}
+                                            </span>
+                                            <i class="pi pi-shopping-cart text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:items-end gap-8">
+                                    <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">
+                                        Faturado no Dia: R$ {{ item.totalSales?.parsedValue || item.totalSales }}
+                                    </span>
+                                    <div class="flex flex-row-reverse md:flex-row gap-2">
+                                        <p-button icon="pi pi-lock" [outlined]="true" />
+                                        <p-button
+                                            icon=""
+                                            class="flex-auto md:flex-initial whitespace-nowrap"
+                                            label="Acessar"
+                                            [disabled]="item.status === 'closed'"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+        </p-dataView>
+      </div>
     </div>
   </div>
 </div>
