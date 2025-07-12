@@ -7,35 +7,50 @@
   [loading]="loading"
   [lazy]="true"
   (onLazyLoad)="onLazyLoad.emit($event)"
-  selectionMode="single"
+  [selectionMode]="selectionMode"
   (onRowSelect)="onRowSelect.emit($event)"
-  dataKey="id"
-  responsiveLayout="scroll">
+  (onRowUnselect)="onRowUnselect.emit($event)"
+  (onSort)="onSort.emit($event)"
+  [dataKey]="rowTrackBy"
+  [responsiveLayout]="scrollable ? 'scroll' : 'stack'"
+  [scrollable]="scrollable"
+  [scrollHeight]="scrollHeight"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [currentPageReportTemplate]="showCurrentPageReport ?
+    'Mostrando {first} a {last} de {totalRecords} registros' : ''">
 
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+      <th *ngFor="let col of columns"
+          [pSortableColumn]="col.sortable !== false ? col.field : null">
         {{ col.header }}
-        <p-sortIcon [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngIf="col.sortable !== false" [field]="col.field"></p-sortIcon>
       </th>
-      <th>Ações</th>
+      <th *ngIf="actionsTemplate">Ações</th>
     </tr>
   </ng-template>
 
   <ng-template pTemplate="body" let-row let-columns="columns">
-    <tr>
+    <tr [pSelectableRow]="selectionMode ? row : null">
       <td *ngFor="let col of columns">
-        {{ row[col.field] }}
+        <ng-container *ngIf="cellTemplate; else defaultCell">
+          <ng-container *ngTemplateOutlet="cellTemplate; context: { $implicit: row, col: col }"></ng-container>
+        </ng-container>
+        <ng-template #defaultCell>
+          {{ row[col.field] }}
+        </ng-template>
       </td>
-      <td>
-        <ng-content [ngTemplateOutletContext]="{ $implicit: row }"></ng-content>
+      <td *ngIf="actionsTemplate">
+        <ng-container *ngTemplateOutlet="actionsTemplate; context: { $implicit: row }"></ng-container>
       </td>
     </tr>
   </ng-template>
 
-  <ng-template pTemplate="emptymessage">
+  <ng-template pTemplate="emptymessage" let-columns>
     <tr>
-      <td colspan="100%">Nenhum registro encontrado</td>
+      <td [attr.colspan]="columns.length + (actionsTemplate ? 1 : 0)">
+        Nenhum registro encontrado
+      </td>
     </tr>
   </ng-template>
 
