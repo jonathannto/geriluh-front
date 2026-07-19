@@ -1,117 +1,67 @@
-# Welcome to the Geriluh Micro-ERP Frontend Repository!
+# 🚀 NTO-ERP Frontend
 
-This repository contains the source code for the **frontend** of **Geriluh**, a lightweight and customizable micro-ERP developed to meet the business management needs of small and medium-sized companies, such as **Lu Caseirinho**.
+![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![PrimeNG](https://img.shields.io/badge/PrimeNG-v19-9C27B0?style=for-the-badge&logo=primeng&logoColor=white)
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)
 
-## What is Geriluh?
+This repository contains the source code for the **frontend** web application of **NTO-ERP**, a lightweight, responsive, and customizable micro-ERP developed to meet the unique operational needs of **Cafés and Bistros**.
 
-**Geriluh** stands for *"Gerenciamento de Pequenas Empresas Lu Caseirinho"*, a Portuguese phrase meaning *"Lu Caseirinho Small Business Management."*  
-It is a **micro-ERP**: a focused, intuitive alternative to large, complex ERP systems — built to simplify everyday operations without sacrificing flexibility or essential features.
+## 📋 What is NTO-ERP?
+
+NTO-ERP is a modern micro-ERP tailored for lightweight, fast-paced, and focused business management. It serves as a scalable, high-performance alternative to traditional, complex enterprise resource planning systems, optimizing workflows in food and beverage hospitality environments.
 
 ![alt text](/public/lucaseirinho_demo.png)
 
-## About the Frontend
+## ✨ About the Frontend
 
-The frontend of Geriluh is:
+The client application is built with a modern architecture focusing on performance and user experience:
 
-- 🌐 Built with **Angular**
-- 🎨 Styled using **PrimeNG** components
-- 🔗 Integrated with the Geriluh REST API
-- 📱 Responsive and optimized for various devices
-- 🧩 Modular, maintainable, and easy to extend
+*   🌐 Built with **Angular 19**
+*   🎨 Styled using **PrimeNG** robust UI components
+*   🔗 Fully integrated with the NTO-ERP HATEOAS REST API
+*   📱 Responsive layout optimized for tablets, desktops, and POS terminals
+*   🧩 Modular, maintainable, and easy to extend structure
 
-## Main Features
+## 🎯 Main Features
 
-- 🔐 Secure user access with role-based menus (Administrators, Attendants, Managers)
-- 💼 Management modules for:
-  - Products
-  - Ingredients
-  - Chocolataria items
-  - Cardápio (menu)
-  - Users
-- 📊 Real-time dashboards and reports
-- 💬 Support for opening and tracking technical tickets
-- 🛒 Sales and cash operations interface
+*   🔐 Secure user access with role-based menus (Administrators, Attendants, Managers).
+*   💼 Management modules specifically designed for:
+    *   Products & Inventory control
+    *   Ingredients & Recipe management
+    *   Coffee Shop & Bistro Menu personalization (*Cardápio*)
+    *   User accounts & Permissions
+*   📊 Real-time dashboards, charts, and operational reports.
+*   🛒 Intuitive sales and cash register interface (*Frente de Caixa*).
 
-## Technology Stack:
+---
 
-Geriluh is built using modern and reliable technologies, ensuring high performance and scalability:
+## 🛠️ Development & CLI Commands
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli). Below are the standard scripts available to run, build, and test the application:
 
+| Action | Command | Description |
+| :--- | :--- | :--- |
+| **Start Server** | `ng serve` | Runs the local dev server at `http://localhost:4200/` |
+| **Build Project** | `ng build` | Compiles and optimizes production assets into the `dist/` directory |
+| **Scaffolding** | `ng generate component name` | Generates a new modular component (or services, directives, etc.) |
+| **Unit Tests** | `ng test` | Executes unit tests via [Karma](https://karma-runner.github.io) test runner |
 
+---
 
-## Development server
+## 🚀 Getting Started
 
-To start a local development server, run:
+To install dependencies and run NTO-ERP Frontend on your local environment, follow the step-by-step instructions in the [INSTALL.md](INSTALL.md) file.
 
-```bash
-ng serve
-```
+## 📄 Documentation & Support
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+*   **Full Documentation:** Comprehensive documentation for NTO-ERP is available at [jonathan.eng.br](https://jonathan.eng.br) - *Under Construction*
+*   **Community Forum:** For support and discussions, join us at [jonathan.eng.br Forum](https://jonathan.eng.br) - *Under Construction*
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📝 License
 
-```bash
-ng generate component component-name
-```
+NTO-ERP Frontend is licensed under the **Apache 2.0 License**. This license grants users extensive freedom to use, modify, and distribute the software, including for commercial purposes.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## License:
-
-Geriluh is licensed under the Apache 2.0 License. This license grants users extensive freedom to use, modify, and distribute the software, including for commercial purposes.
-
-Getting Started:
-
-To install and run Geriluh on your local environment, follow the instructions in the INSTALL.md file.
-
-Contributing:
-
-The community is welcome to contribute to the development of Geriluh. To learn how to contribute, read the CONTRIBUTING.md file.
-
-Documentation:
-
-Comprehensive documentation for Geriluh is available at https://jonathan.eng.br
-
-Support:
-
-For support, you can join the Geriluh community forum at https://jonathan.eng.br
-
-Embrace Efficient Business Management with Geriluh!
-
-The Geriluh Development Team
+> **Embrace Efficient Business Management with NTO-ERP!**  
+> *Jonathan Nascimento — NTO-ERP Creator*
